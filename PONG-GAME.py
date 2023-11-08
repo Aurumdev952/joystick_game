@@ -6,13 +6,14 @@ import threading
 
 import serial
 POWER_UP_CONSTANT = 0.02
-
+PORT = "COM10"
+BASE = 502
 
 def ball_animation():
     global ball_speed_x, ball_speed_y, player_score, opponent_score, score_time, power_up
     ball.x += ball_speed_x * power_up
     ball.y += ball_speed_y * power_up
-    print("power up:",power_up)
+    # print("power up:",power_up)
     if ball.top <= 0 or ball.bottom >= screen_height:
         pygame.mixer.Sound.play(pong_sound)
         ball_speed_y *= -1
@@ -119,17 +120,16 @@ def move_reset():
 
 def pyserial_thread():
     print("pyserial initialised")
-    ser = serial.Serial("COM10", 19200, timeout=0.01)
+    ser = serial.Serial(PORT, 19200, timeout=0.01)
     while True:
         try:
             arduino_data = ser.readline().decode().strip().split("\t")
             # print(arduino_data)
             if len(arduino_data) == 2:
                 y = int(arduino_data[1])
-                base = 502
-                if y >= base + 5:
+                if y >= BASE + 5:
                     move_left()
-                elif y <= base - 5:
+                elif y <= BASE - 5:
                     move_right()
                 else:
                     move_reset()
