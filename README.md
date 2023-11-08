@@ -18,7 +18,7 @@ The objective is prevent the ball from getting past your player.
 
 to get started, make sure you have python installed in your system and then clone this repository
 ```bash
-git clone https://github.com/
+git clone https://github.com/Aurumdev952/joystick_game
 ```
 install dependencies
 ```bash
