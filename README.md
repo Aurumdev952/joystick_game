@@ -22,7 +22,7 @@ git clone https://github.com/Aurumdev952/joystick_game
 ```
 install dependencies
 ```bash
-cd
+cd joystick_game
 pip install pygame
 ```
 after that, make sure you have arduino uno micro-controller and a joystick module
@@ -36,6 +36,11 @@ to run the game, use:
 ```bash
 python PONG_GAME.py
 ```
+
+# Known issues
+different joysticks may give different values for resting positions which may lead to wierd behaviours, to fix this
+open the Serial monitor and check the values being outputed, then check the second value when the joystick is in resting position, then go into `PONG_GAME.py` and modify the `BASE` constant to the value you found. That should fix that issue.
+
 
 # about
 this game was developed by Crash Devs.
