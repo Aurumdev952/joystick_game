@@ -23,7 +23,7 @@ git clone https://github.com/Aurumdev952/joystick_game
 install dependencies
 ```bash
 cd joystick_game
-pip install pygame
+pip install pygame pyserial
 ```
 after that, make sure you have arduino uno micro-controller and a joystick module
 connect them according to this scheme
